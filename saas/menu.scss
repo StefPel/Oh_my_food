@@ -1,0 +1,489 @@
+// Importation des variables et mixins
+@import 'variables';
+@import 'mixins';
+
+// Réinitialisation des marges, paddings et bordures pour les éléments HTML de base
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+  }
+  
+// Réinitialisation des éléments de bloc HTML5 pour une compatibilité avec les navigateurs plus anciens
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  
+// Réinitialisation de la ligne de base pour le corps du texte
+  body {
+    line-height: 1;
+  }
+  
+// Réinitialisation des styles de liste pour les listes non ordonnées et ordonnées
+  ol, ul {
+    list-style: none;
+  }
+  
+// Réinitialisation des styles de citation pour les citations et les blocs de citation
+  blockquote, q {
+    quotes: none;
+    &:before, &:after {
+      content: '';
+      content: none;
+    }
+  }
+  
+// Réinitialisation des styles pour les liens hypertextes
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+// Définir les styles de base
+html, body {
+  font-family: $font-family-default;
+  font-weight: $font-weight-normal;
+  color: $color-black;
+  font-size: $font-size-default;
+  background-color: $color-background-default;
+}
+
+h1, h2 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-large;
+}
+
+h3 {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-medium;
+}
+
+p {
+  font-size: $font-size-default;
+}
+
+// Styles de la section "header restaurants"
+header {
+  position: relative;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-white;
+  box-shadow: 0px 2px 4px $color-gray-border;
+  padding: 23px 25px 18px;
+
+  img {
+    width: $logo-width;
+    height: auto;
+  }
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  left: 25px;
+  top: 27px;
+  right: 0;
+  bottom: 0;
+}
+
+.header_logo .fa-arrow-left {
+  color: $color-black;
+}
+
+// Styles de la section "main"
+.main {
+  background-color: $color-white;
+}
+
+.main_menu {
+  background-color: $color-background-default;
+  padding-bottom: 40px;
+}
+
+.menu_img img {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.header_menu {
+  border-top-right-radius: 40px; 
+  border-top-left-radius: 40px;
+  margin-top: -50px; 
+  padding: 30px 13px 40px;
+  background-color: $color-background-default;
+  z-index: 1;
+  position: relative;
+}
+
+.section_title_menu {
+  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title_menu {
+  font-family: $font-family-title;
+  font-size: 28px; 
+  font-weight: $font-weight-normal;
+}
+
+i {
+  &.icon-regular {
+    margin-right: -28px; 
+  }
+
+  &.icon-solid {
+    &:hover {
+      background-image: $gradient-background;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      opacity: 1;
+      line-height: 1;
+      cursor: pointer;
+      transition: opacity 0.8s ease-in 0.3s;
+    }
+
+    &:not(:hover) {
+      background-image: $gradient-background;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1;
+      transition: opacity 0.8s ease-in 0.3s;
+      opacity: 0;
+    }
+  }
+}
+
+// Styles de la section "cards menu"
+.restaurants_cards {
+  margin: 40px 13px;
+  animation: transition 1.5s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.transition2 {
+  animation: transition 1.5s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+.transition3 {
+  animation: transition 1.5s ease-out 2.5s forwards;
+  opacity: 0;
+}
+
+@keyframes transition {
+  0% {
+    opacity: 0;
+    margin-left: -20px;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 13px;
+  }
+}
+
+.title_section_restaurants {
+  font-weight: $font-weight-light;
+  margin-bottom: 12px;
+  font-size: $font-size-small;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: $color-green-light;
+    margin-top: 10px;
+  }
+}
+
+.card {
+  width: 100%;
+  background: $color-white;
+  box-shadow: $shadow-default;
+  border-radius: $border-radius-small;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 55px;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: $shadow-strong;
+    cursor: pointer;
+    border-top-right-radius: $border-radius-small;
+    border-bottom-right-radius: $border-radius-small;
+  }
+}
+
+.card1 {
+  display: flex;
+  overflow: hidden;
+
+  .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.container_restaurant {
+  padding: 12px 18px 12px 10px;
+  width: 100%;
+
+  h3 {
+    font-weight: $font-weight-normal;
+  }
+}
+
+.text {
+  margin-top: 12px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-light;
+}
+
+.card2 {
+  display: flex;
+  gap: 10px;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 12px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-bold;
+  color: $color-gray-dark;
+}
+
+.check {
+  width: 60px;
+  background-color: $color-green-light;
+  height: 69px;
+  border-radius: 0px 15px 15px 0px;
+  display: flex;
+  align-items: center;
+  font-size: 31px;
+  padding-left: 15px;
+}
+
+i.fa-circle-check {
+  background-color: $color-white;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  color: $color-green-light;
+}
+
+.card {
+  .card2 {
+    margin-right: -60px;
+  }
+
+  &:hover .card2 {
+    transform: translateX(-60px);
+    transition: transform 0.8s ease-in;
+  }
+
+  &:not(:hover) .card2 {
+    transform: translateX(0);
+    transition: transform 0.8s ease-in;
+  }
+}
+
+.button_command {
+  display: block;
+  border-radius: $border-radius-large;
+  box-shadow: $shadow-strong;
+  background: $gradient-background;
+  padding: 13px 20px;
+  border: none;
+  font-weight: $font-weight-normal;
+  color: $color-white;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  &:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    filter: brightness(1.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:not(:hover) {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+// Utilisation du mixin pour les styles de la section "footer"
+@include footer-styles;
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header_logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  .arrow {
+    left: 40px;
+  }
+
+  .main_menu {
+    margin: 0 110px;
+  }
+
+  .section_title_menu {
+    margin-top: 50px;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .restaurants_cards {
+    margin: 0;
+    padding: 40px 60px 0;
+  }
+
+  /* keyframes*/
+
+  @keyframes transition {
+    0% {
+      opacity: 0;
+      margin-left: -40px;
+      margin-right: -40px;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 1;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+  }
+
+  .group_footer {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+  }
+
+  .link_footer {
+    margin-left: 5px;
+  }
+
+  .link_footer2 {
+    margin-left: 3px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header_logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  .arrow {
+    left: 60px;
+  }
+
+  .main_menu {
+    margin: 0 140px;
+  }
+
+  .header_menu {
+    margin-top: -70px;
+  }
+
+  .menu_img img {
+    height: 375px;
+  }
+
+  .section_title_menu {
+    margin-top: 50px;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .restaurants_cards {
+    margin: 0;
+    padding: 40px 120px 0;
+  }
+
+  /* keyframes*/
+
+  @keyframes transition {
+    0% {
+      opacity: 0;
+      margin-left: -100px;
+      margin-right: -100px;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 1;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-right: 130px;
+  }
+
+  .icon_footer {
+    display: flex;
+    margin-top: 8px;
+    padding-left: 70px;
+  }
+
+  .group_footer {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .link_footer {
+    margin-left: 5px;
+  }
+
+  .link_footer2 {
+    margin-left: 3px;
+  }
+}

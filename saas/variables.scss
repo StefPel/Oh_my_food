@@ -1,0 +1,36 @@
+// Variables pour les couleurs
+$color-black: #000;
+$color-background-default: #F7F7F7;
+$color-white: #fff;
+$color-gray-light: #EAEAEA;
+$color-gray-dark: #353535;
+$color-purple: #9356DC;
+$color-pink: #FF79DA;
+$color-green-light: #99E2D0;
+$color-gray-border: rgba(0, 0, 0, 0.15);
+$color-gray-shadow: rgba(0, 0, 0, 0.1);
+$color-gray-shadow-strong: rgba(0, 0, 0, 0.25);
+
+// Variables pour les tailles de police
+$font-size-default: 16px;
+$font-size-large: 24px;
+$font-size-medium: 18px;
+$font-size-small: 14px;
+
+// Variables pour les poids de police
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+$font-weight-light: 300;
+
+// Variables pour les familles de polices
+$font-family-default: 'Roboto', sans-serif;
+$font-family-title: 'Shrikhand', cursive; // Si utilisé
+
+// Variables pour les dimensions spécifiques
+$logo-width: 162px;
+$section-height: 50px;
+$border-radius-small: 15px;
+$border-radius-large: 25px;
+$shadow-default: 0px 4px 15px $color-gray-shadow;
+$shadow-strong: 0px 4px 15px $color-gray-shadow-strong;
+$gradient-background: linear-gradient(200.64deg, $color-purple -5.2%, $color-pink 110.74%);

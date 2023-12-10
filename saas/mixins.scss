@@ -1,0 +1,54 @@
+
+// Mixin Styles de Base pour HTML et Body
+@mixin base-html-body {
+  font-family: $font-family-default;
+  font-weight: $font-weight-normal;
+  color: $color-black;
+  font-size: $font-size-default;
+  background-color: $color-background-default;
+}
+
+// Mixin Styles Titres (h1, h2, h3)
+@mixin title-styles {
+  h1, h2 { font-weight: $font-weight-bold; font-size: $font-size-large; }
+  h3 { font-weight: $font-weight-bold; font-size: $font-size-medium; }
+}
+
+// Mixin Styles de Texte
+@mixin text-style($font-size, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+// Styles Liens Hypertextes
+@mixin link-style {
+  text-decoration: none;
+  color: #000;
+}
+
+// Mixin Styles footer
+@mixin footer-styles {
+  .footer {
+    background: $color-gray-dark;
+    padding: 22px 25px 35px;
+    color: $color-white;
+
+    a {
+      color: $color-white;
+      font-size: $font-size-default;
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  .footer_column {
+    margin-top: 10px;
+  }
+
+  .link_footer {
+    margin-left: 10px;
+  }
+
+  .link_footer2 {
+    margin-left: 5px;
+  }
+}
